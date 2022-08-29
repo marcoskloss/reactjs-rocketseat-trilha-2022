@@ -1,0 +1,37 @@
+.todo {
+  background-color: var(--gray-500);
+  padding: 1rem;
+  border: 1px solid var(--gray-400);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo.done .todoText {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.todoText {
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  line-height: 140%;
+}
+
+.deleteTodo {
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 0;
+  transition: 0.1s;
+}
+
+.deleteTodo:hover,
+.deleteTodo:focus {
+  background-color: var(--gray-400);
+  color: var(--danger);
+}

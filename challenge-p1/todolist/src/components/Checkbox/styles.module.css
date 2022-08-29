@@ -1,0 +1,36 @@
+.container {
+  font-size: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 0.3rem;
+  background-color: transparent;
+
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+
+  cursor: pointer;
+  position: relative;
+}
+
+.container.checked {
+  border: 2px solid var(--purple-dark);
+  background-color: var(--purple-dark);
+}
+
+.container svg {
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: -1px;
+}
+
+.container:hover:not(.checked),
+.container:focus:not(.checked) {
+  background: var(--blue-dark-opaque);
+}
+
+.container.checked:hover,
+.container.checked:focus {
+  border: 2px solid var(--purple);
+  background: var(--purple);
+}

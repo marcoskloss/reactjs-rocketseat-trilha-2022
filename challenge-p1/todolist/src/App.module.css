@@ -1,0 +1,40 @@
+.content {
+  max-width: 47.6875rem;
+  margin: 0 auto;
+  margin-top: -1.6875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.statBox.created strong {
+  color: var(--blue);
+}
+
+.statBox.done strong {
+  color: var(--purple);
+}
+
+.statBox span {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  background: var(--gray-400);
+  border-radius: 100%;
+  color: var(--gray-200);
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
