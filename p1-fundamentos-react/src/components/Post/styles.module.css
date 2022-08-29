@@ -1,0 +1,112 @@
+.container {
+  background-color: var(--gray-800);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+
+.container > header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author {
+  display: flex;
+  gap: 1rem;
+}
+
+.author > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.author strong {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.author p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+}
+
+.content {
+  border-bottom: 1px solid var(--gray-600);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.tag {
+  font-weight: 700;
+  color: var(--green-500);
+  text-decoration: none;
+}
+
+.tag + .tag {
+  margin-top: -12px;
+}
+
+.tags a:hover {
+  color: var(--green-300);
+}
+
+.commentForm {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formTitle {
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--grey-100);
+}
+
+.commentForm textarea {
+  background-color: var(--gray-900);
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  padding: 0.8rem 1rem;
+  resize: none;
+  height: 6rem;
+  line-height: 1.4;
+  color: var(--gray-300);
+}
+
+.commentForm textarea:focus {
+  outline: 1px solid var(--green-300);
+}
+
+.submitButton {
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 19px;
+  color: var(--white);
+  padding: 1rem 1.5rem 0.8rem;
+  border: none;
+  background: var(--green-500);
+  transition: 0.1s;
+}
+
+.submitButton:hover {
+  background: var(--green-300);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}

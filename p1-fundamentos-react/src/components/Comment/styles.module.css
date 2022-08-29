@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  gap: 1rem;
+}
+
+.authorAvatar {
+  width: 50px;
+  height: 50px;
+}
+
+.commentContainer {
+  flex: 1;
+}
+
+.comment {
+  border-radius: 8px;
+  background: var(--gray-700);
+  padding: 1rem;
+}
+
+.comment header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.author {
+  font-size: 14px;
+  line-height: 160%;
+  color: var(--gray-100);
+}
+
+.author span {
+  color: var(--gray-400);
+}
+
+.commentAuthorInfo time {
+  font-size: 12px;
+  color: var(--gray-400);
+  line-height: 160%;
+}
+
+.deleteComment {
+  color: var(--gray-400);
+  border: none;
+  background-color: transparent;
+  line-height: 0;
+  transition: 0.1s;
+}
+
+.deleteComment:hover {
+  color: var(--red-400);
+}
+
+.text {
+  margin-top: 1rem;
+  font-size: 14px;
+  line-height: 160%;
+}
+
+.commentReactions {
+  margin-top: 1rem;
+}
+
+.commentReactions button {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  gap: 0.625rem;
+  color: var(--gray-400);
+  background-color: transparent;
+  border: none;
+  transition: 0.1s;
+}
+
+.commentReactions button:hover {
+  color: var(--green-100);
+}
