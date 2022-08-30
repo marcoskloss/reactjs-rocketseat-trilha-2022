@@ -26,16 +26,13 @@ function App() {
 
   const handleToggleTodo = (id: string) => {
     setTodos((prevState) => {
-      console.log("exec!");
       const todo = prevState.find((todo) => todo.id === id);
       if (todo) todo.done = !todo.done;
-      console.log(todo);
       return [...prevState];
     });
   };
 
   const handleDeleteTodo = (id: string) => {
-    console.log("exec!");
     setTodos((state) => state.filter((todo) => todo.id !== id));
   };
 
@@ -49,11 +46,15 @@ function App() {
           <header className={styles.stats}>
             <div className={`${styles.statBox} ${styles.created}`}>
               <strong>Tarefas criadas</strong>
-              <span>0</span>
+              <span>{todos.length}</span>
             </div>
             <div className={`${styles.statBox} ${styles.done}`}>
               <strong>Tarefas concluídas</strong>
-              <span>0</span>
+              <span>
+                {todos.length > 0
+                  ? `${todos.filter((t) => t.done).length} de ${todos.length}`
+                  : 0}
+              </span>
             </div>
           </header>
 
