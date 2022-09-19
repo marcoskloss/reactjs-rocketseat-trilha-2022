@@ -1,6 +1,6 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { ShoppingCartSimple } from 'phosphor-react'
-import defaultCoffeImg from '../../../../assets/espresso.png'
+import defaultCoffeImg from '../../../../assets/loading-coffee.svg'
 import { Counter } from '../../../../components/Counter'
 import {
   CoffeeContainer,
@@ -11,12 +11,14 @@ import {
 
 interface Props {
   data: {
+    id: number
     tags: string[]
     title: string
     description: string
     price: number
     imgName: string
   }
+  onAddCoffee: (id: number, amount: number) => void
 }
 
 const currencyFormatter = new Intl.NumberFormat('pt-BR', {
@@ -24,11 +26,21 @@ const currencyFormatter = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 2,
 })
 
-export function Coffee({ data }: Props) {
+export function Coffee({ data, onAddCoffee }: Props) {
+  const { description, imgName, price, tags, title, id } = data
+
   const [imgUrl, setImgUrl] = useState(defaultCoffeImg)
-  const { description, imgName, price, tags, title } = data
+  const [counter, setCounter] = useState(0)
 
   const formattedPrice = currencyFormatter.format(price)
+
+  const handleChangeCounter = useCallback((value: number) => {
+    setCounter(value)
+  }, [])
+
+  const handleAddCoffee = () => {
+    onAddCoffee(id, counter)
+  }
 
   useEffect(() => {
     import(`../../../../assets/${imgName}.png`)
@@ -38,9 +50,7 @@ export function Coffee({ data }: Props) {
 
   return (
     <CoffeeContainer>
-      <Suspense>
-        <img src={imgUrl} alt="" />
-      </Suspense>
+      <img src={imgUrl} alt="" />
       <div>
         {tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
@@ -53,8 +63,14 @@ export function Coffee({ data }: Props) {
         <CoffeePrice>
           R$ <strong>{formattedPrice}</strong>
         </CoffeePrice>
-        <Counter />
-        <ShoppingCartSimple size={22} weight="fill" />
+        <Counter onChangeValue={handleChangeCounter} />
+        <ShoppingCartSimple
+          size={22}
+          weight="fill"
+          aria-label={`Adicionar ${title} ao carrinho`}
+          cursor="pointer"
+          onClick={handleAddCoffee}
+        />
       </CoffeePriceContainer>
     </CoffeeContainer>
   )

@@ -4,13 +4,16 @@ import { Router } from './Router'
 
 import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/defaultTheme'
+import { CartProvider } from './hooks/cart/useCart'
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <BrowserRouter>
-        <Router />
+        <CartProvider>
+          <Router />
+        </CartProvider>
       </BrowserRouter>
     </ThemeProvider>
   )

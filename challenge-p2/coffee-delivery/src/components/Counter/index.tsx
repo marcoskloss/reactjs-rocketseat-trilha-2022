@@ -1,13 +1,19 @@
 import { Minus, Plus } from 'phosphor-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CounterContainer } from './styles'
 
 interface Props {
   subject?: string
   minValue?: number
   maxValue?: number
+  onChangeValue: (currentValue: number) => void
 }
-export function Counter({ subject = 'item', minValue = 1, maxValue }: Props) {
+export function Counter({
+  subject = 'item',
+  minValue = 1,
+  maxValue,
+  onChangeValue,
+}: Props) {
   const [counter, setCounter] = useState(1)
 
   function handleIncrement() {
@@ -27,6 +33,8 @@ export function Counter({ subject = 'item', minValue = 1, maxValue }: Props) {
       return state - 1
     })
   }
+
+  useEffect(() => onChangeValue(counter), [counter, onChangeValue])
 
   return (
     <CounterContainer>
