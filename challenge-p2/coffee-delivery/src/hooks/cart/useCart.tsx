@@ -3,7 +3,6 @@ import {
   PropsWithChildren,
   useCallback,
   useContext,
-  useEffect,
   useState,
 } from 'react'
 import { CartItem, cartActions } from './actions'
@@ -33,10 +32,6 @@ export function CartProvider({ children }: PropsWithChildren) {
   const removeCoffeeItemFromCart = useCallback((id: number) => {
     setCartItems((state) => cartActions.removeCoffeeItemFromCart(id, state))
   }, [])
-
-  useEffect(() => {
-    console.log({ cartItems })
-  }, [cartItems])
 
   return (
     <CartContext.Provider
