@@ -38,11 +38,19 @@ export function Counter({
 
   return (
     <CounterContainer>
-      <button onClick={handleDecrement} title={`Remover mais um ${subject}`}>
+      <button
+        type="button"
+        onClick={handleDecrement}
+        title={`Remover mais um ${subject}`}
+      >
         <Minus weight="fill" />
       </button>
       <output>{counter}</output>
-      <button onClick={handleIncrement} title={`Adicionar mais um ${subject}`}>
+      <button
+        type="button"
+        onClick={handleIncrement}
+        title={`Adicionar mais um ${subject}`}
+      >
         <Plus weight="fill" />
       </button>
     </CounterContainer>
