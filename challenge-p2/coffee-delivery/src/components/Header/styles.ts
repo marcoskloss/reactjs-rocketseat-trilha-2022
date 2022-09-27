@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -25,7 +26,7 @@ export const LocationLabel = styled.div`
   justify-content: space-between;
 `
 
-export const CartButton = styled.button`
+export const CartButton = styled(Link)`
   padding: 8px;
   background: ${(props) => props.theme['yellow-light']};
   color: ${(props) => props.theme['yellow-dark']};

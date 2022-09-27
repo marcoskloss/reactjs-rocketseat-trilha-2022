@@ -47,12 +47,6 @@ export const CoffeePriceContainer = styled.div`
   align-items: center;
 
   & > svg {
-    background: ${(props) => props.theme['purple-dark']};
-    color: ${(props) => props.theme.white};
-    box-sizing: content-box;
-    padding: 0.375rem;
-    border-radius: 6px;
-    margin-left: 0.5rem;
   }
 `
 export const CoffeePrice = styled.span`
@@ -65,5 +59,20 @@ export const CoffeePrice = styled.span`
     font-family: 'Baloo 2', cursive;
     font-weight: 800;
     font-size: 1.5rem;
+  }
+`
+
+export const AddToCartButton = styled.button`
+  background: ${(props) => props.theme['purple-dark']};
+  color: ${(props) => props.theme.white};
+  border-radius: 6px;
+  margin-left: 0.5rem;
+  border: none;
+  font-size: 0;
+  height: 100%;
+  padding: 0 0.5rem;
+
+  &:active {
+    background: ${(props) => props.theme.purple};
   }
 `

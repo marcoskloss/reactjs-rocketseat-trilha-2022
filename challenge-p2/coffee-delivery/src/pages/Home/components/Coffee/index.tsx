@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ShoppingCartSimple } from 'phosphor-react'
 import defaultCoffeImg from '../../../../assets/loading-coffee.svg'
 import { Counter } from '../../../../components/Counter'
 import {
+  AddToCartButton,
   CoffeeContainer,
   CoffeePrice,
   CoffeePriceContainer,
@@ -30,17 +31,11 @@ export function Coffee({ data, onAddCoffee }: Props) {
   const { description, imgName, price, tags, title, id } = data
 
   const [imgUrl, setImgUrl] = useState(defaultCoffeImg)
-  const [counter, setCounter] = useState(0)
+  const [quantity, setQuantity] = useState(0)
+
+  const handleAddCoffee = () => onAddCoffee(id, quantity)
 
   const formattedPrice = currencyFormatter.format(price)
-
-  const handleChangeCounter = useCallback((value: number) => {
-    setCounter(value)
-  }, [])
-
-  const handleAddCoffee = () => {
-    onAddCoffee(id, counter)
-  }
 
   useEffect(() => {
     import(`../../../../assets/${imgName}.png`)
@@ -63,14 +58,18 @@ export function Coffee({ data, onAddCoffee }: Props) {
         <CoffeePrice>
           R$ <strong>{formattedPrice}</strong>
         </CoffeePrice>
-        <Counter onChangeValue={handleChangeCounter} />
-        <ShoppingCartSimple
-          size={22}
-          weight="fill"
-          aria-label={`Adicionar ${title} ao carrinho`}
-          cursor="pointer"
+        <Counter onChangeValue={setQuantity} />
+        <AddToCartButton
+          title={`Adicionar ${quantity} ${title} ao carrinho`}
           onClick={handleAddCoffee}
-        />
+        >
+          <ShoppingCartSimple
+            size={22}
+            weight="fill"
+            aria-label={`Adicionar ${title} ao carrinho`}
+            cursor="pointer"
+          />
+        </AddToCartButton>
       </CoffeePriceContainer>
     </CoffeeContainer>
   )

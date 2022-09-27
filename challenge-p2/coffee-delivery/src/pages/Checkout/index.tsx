@@ -5,6 +5,8 @@ import {
   Bank,
   Money,
 } from 'phosphor-react'
+import { useCart } from '../../hooks/cart/useCart'
+import coffeeList from '../../coffees.json'
 import {
   Card,
   CardContent,
@@ -17,6 +19,8 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const { cartItems } = useCart()
+
   return (
     <CheckoutContainer>
       <Card>
@@ -51,7 +55,7 @@ export function Checkout() {
 
       <Card>
         <h3>Cafés selecionados</h3>
-        <CardContent>cart...</CardContent>
+        <CardContent>{JSON.stringify(cartItems, null, 2)}</CardContent>
       </Card>
 
       <Card>

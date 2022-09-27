@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CheckoutContainer = styled.form`
   display: grid;
-  grid-template-columns: 57% 43%;
+  grid-template-columns: 1.42fr 1fr;
   gap: 2rem;
 `
 
